@@ -17,14 +17,12 @@ export default function Header() {
 
         {/* Links */}
         <nav className="nav-links" aria-label="Primary">
-  <a href="/">Home</a>
-  <a href="/how-it-works">How It Works</a>   {/* ✅ fixed */}
-  <a href="/pricing">Pricing</a>
-  <a href="/industries">Industries</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-</nav>
-
+          <a href="/">Home</a>
+          <a href="/how-it-works">How It Works</a>   {/* ✅ fixed link */}
+          <a href="/pricing">Pricing</a>
+          <a href="/industries">Industries</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </nav>
 
         {/* CTA */}
