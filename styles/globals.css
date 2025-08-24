@@ -206,4 +206,38 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
 /* Ensure viewport meta exists in your HTML head:
    <meta name="viewport" content="width=device-width, initial-scale=1" />
 */
+/* === MOBILE HOTFIX (v4) === */
+
+/* 0) No sideways scrolling */
+html, body { overflow-x: hidden; }
+
+/* 1) NAV: links were cut off because the nav had a fixed height */
+@media (max-width: 860px){
+  .nav       { height:auto; }
+  .nav-inner { height:auto; flex-wrap:wrap; align-items:flex-start; row-gap:.5rem; }
+  .nav a     { margin-right:.6rem; }
+  .nav .btn  { width:100%; justify-content:center; } /* CTA sits on its own line */
+}
+
+/* 2) CONTACT: keep inputs centered & full width */
+section[id*="contact"] .container { max-width:720px; margin:0 auto; padding:0 16px; }
+section[id*="contact"] form { width:100%; margin:0 auto; }
+section[id*="contact"] input,
+section[id*="contact"] textarea,
+section[id*="contact"] button { width:100%; box-sizing:border-box; }
+@media (max-width: 768px){
+  section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
+}
+
+/* 3) PRICING: text overflowing – wrap text and stack cards on mobile */
+.pricing-row .card { 
+  min-width:0; 
+  overflow-wrap:anywhere; 
+  word-break:break-word; 
+  hyphens:auto; 
+}
+@media (max-width: 860px){
+  .pricing-row { display:flex; flex-direction:column; gap:1rem; }
+  .pricing-row .card { width:100%; }
+}
 
