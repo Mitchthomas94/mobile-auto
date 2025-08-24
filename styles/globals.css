@@ -181,5 +181,26 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
 @media (max-width:768px){
   section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
 }
+/* --- Clean, aligned mobile header --- */
+@media (max-width: 860px){
+  .nav       { height:auto; }
+  .nav-inner {
+    display:grid;
+    grid-template-columns: 1fr auto;           /* brand | cta */
+    grid-template-areas:
+      "brand cta"
+      "links links";                            /* links row */
+    align-items:center;
+    row-gap:.5rem;
+  }
+
+  .brand       { grid-area: brand; }
+  .nav-cta     { grid-area: cta; justify-self:end; }
+  .nav-links   { grid-area: links; display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; }
+
+  /* polish */
+  .nav a { margin:0; }
+  .nav-cta { width:100%; justify-content:center; }  /* full-width button on phones */
+}
 
 /* END */
