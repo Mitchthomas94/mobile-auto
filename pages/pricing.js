@@ -124,7 +124,7 @@ export default function Page(){
     <section className="container mt2">
       <h1 className="h1">Introductory Packages — More Conversations for Your Money</h1>
       <p className="subtle">As a new starter in the market, we’re offering reduced pricing for early adopters. <strong>Lock in your plan today — these rates won’t last forever.</strong></p>
-      <div className="grid4 mt1" style={{gridTemplateColumns:'repeat(3,minmax(0,1fr))'}}>
+      <div className="grid4 mt1 pricing-grid">
         {tiers.map(t => (
           <div key={t.name} className="card" style={{borderColor: t.recommended ? 'var(--brand)' : '#e2e8f0', boxShadow: t.recommended ? '0 2px 10px rgba(37,99,235,.15)' : '0 1px 2px rgba(0,0,0,.04)'}}>
             <h3 style={{margin:'0 0 .5rem 0'}}>{t.name} {t.recommended && <span className="badge-rec">Recommended</span>}</h3>
