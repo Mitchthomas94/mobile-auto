@@ -1,4 +1,4 @@
-<h2 style={{color: 'red'}}>BUILD CHECK v2</h2>
+
 
 import Head from 'next/head'
 
