@@ -285,4 +285,11 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
   .container:has(> .card) .btn,
   .container:has(> .card) .btn-outline { width: 100%; justify-content: center; }
 }
+/* Pricing grid: desktop = 3 cols, mobile = rows */
+.pricing-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+@media (max-width:860px){
+  .pricing-grid { grid-template-columns:1fr; gap:1.25rem; }
+  .pricing-grid .card { min-width:0; overflow-wrap:anywhere; word-break:break-word; }
+  .pricing-grid .btn { width:100%; justify-content:center; }
+}
 
