@@ -11,7 +11,7 @@ export default function Header() {
 
         <nav className="nav-links" aria-label="Primary">
           <Link href="/">Home</Link>
-          <Link href="/how-it-works">How It Works</Link> {/* <-- correct */}
+          <Link href="/how-it-works">How It Works</a>
           <Link href="/pricing">Pricing</Link>
           <Link href="/industries">Industries</Link>
           <Link href="/about">About</Link>
