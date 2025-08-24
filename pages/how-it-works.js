@@ -60,3 +60,8 @@ export default function Page(){
         </>
   )
 }
+// Redirect /how -> /how-it-works (covers any old links or cached menus)
+export async function getServerSideProps() {
+  return { redirect: { destination: '/how-it-works', permanent: true } };
+}
+export default function HowRedirect() { return null; }
