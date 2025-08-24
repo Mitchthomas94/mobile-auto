@@ -1,371 +1,170 @@
+/* ===========================
+   AutoBooked AI — Global Styles (cleaned)
+   =========================== */
 
 :root { --brand: #2563eb; }
-html, body { margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:#0f172a; background:#f8fafc; }
+
+/* Base */
+html, body {
+  margin:0; padding:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color:#0f172a; background:#f8fafc;
+  overflow-x:hidden; /* stop sideways scroll globally */
+}
 a { color: var(--brand); text-decoration: none; }
 a:hover { opacity:.85; }
-.container { max-width: 1120px; margin: 0 auto; padding: 0 1rem; }
-.btn { display:inline-flex; align-items:center; padding:.75rem 1.25rem; border-radius:.75rem; background: var(--brand); color:#fff; }
+img, svg, video { max-width:100%; height:auto; }
+
+.container { max-width:1120px; margin:0 auto; padding:0 1rem; }
+.maxwrap { max-width:1100px; margin:0 auto; }
+.centerwrap { padding:4rem 0; text-align:center; max-width:900px; margin:0 auto; }
+
+.btn { display:inline-flex; align-items:center; padding:.75rem 1.25rem; border-radius:.75rem; background:var(--brand); color:#fff; }
 .btn-outline { display:inline-flex; align-items:center; padding:.75rem 1.25rem; border-radius:.75rem; border:1px solid #cbd5e1; color:#0f172a; }
+
 .card { background:#fff; border:1px solid #e2e8f0; border-radius:1rem; padding:1.25rem; box-shadow:0 1px 2px rgba(0,0,0,.04); }
-.nav { position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.9); border-bottom:1px solid #e2e8f0; height:64px; z-index:10; }
-.nav-inner { height:64px; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-.footer { margin-top:4rem; border-top:1px solid #e2e8f0; background:#fff; }
-.footer-grid { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:2rem; padding:3rem 0; }
-@media (max-width: 768px){ .footer-grid { grid-template-columns: 1fr; } }
-.nav a { margin-right: 1rem; font-weight:500; }
-.h1 { font-size: clamp(2rem, 2vw + 1.5rem, 3rem); line-height:1.1; margin:0 0 0.5rem 0; }
+.card-title { display:flex; align-items:center; gap:.5rem; margin:0 0 .25rem 0; font-weight:700; }
+
+.h1 { font-size: clamp(2rem, 2vw + 1.5rem, 3rem); line-height:1.1; margin:0 0 .5rem 0; }
 .subtle { color:#334155; }
 .faint { color:#64748b; }
-.grid4 { display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:1rem; }
-.mt2 { margin-top:2rem; }
+
 .mt1 { margin-top:1rem; }
-.pt-header { padding-top:64px; }
-.flex-between { display:flex; align-items:center; justify-content:space-between; }
+.mt2 { margin-top:2rem; }
 .list { margin:0 0 1rem 1rem; }
 .pre { white-space:pre-wrap; line-height:1.6; }
-.centerwrap { padding:4rem 0; text-align:center; max-width:900px; margin:0 auto; }
-.maxwrap { max-width:1100px; margin:0 auto; }
 .aspect-video { aspect-ratio:16/9; }
 .iframe { width:100%; height:70vh; min-height:480px; border:0; }
 
-
-/* --- Steps / timeline components --- */
-.lead { font-size: 1.05rem; color:#334155; }
-.muted { color:#64748b; }
-
-.steps { display:grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap:1.25rem; margin-top:1.25rem; }
-.step-card { grid-column: span 12; background:#fff; border:1px solid #e2e8f0; border-radius:1rem; padding:1.25rem; display:flex; gap:1rem; align-items:flex-start; box-shadow:0 1px 2px rgba(0,0,0,.04); }
-@media (min-width: 900px){ 
-  .step-card { grid-column: span 6; } 
+/* Nav & Footer */
+.nav {
+  position:sticky; top:0; z-index:10;
+  backdrop-filter:saturate(180%) blur(8px);
+  background:rgba(255,255,255,.9);
+  border-bottom:1px solid #e2e8f0;
+  height:64px;
 }
+.nav-inner { height:64px; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.nav a { margin-right:1rem; font-weight:500; }
+.pt-header { padding-top:64px; }
+
+.footer { margin-top:4rem; border-top:1px solid #e2e8f0; background:#fff; }
+.footer-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2rem; padding:3rem 0; }
+
+/* Grids (default desktop) */
+.grid2 { display:grid; gap:1rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.grid3 { display:grid; gap:1rem; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.grid4 { display:grid; gap:1rem; grid-template-columns:repeat(4,minmax(0,1fr)); }
+
+/* Steps / timeline */
+.lead { font-size:1.05rem; color:#334155; }
+.muted { color:#64748b; }
+.steps { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:1.25rem; margin-top:1.25rem; }
+.step-card { grid-column:span 12; background:#fff; border:1px solid #e2e8f0; border-radius:1rem; padding:1.25rem; display:flex; gap:1rem; align-items:flex-start; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+@media (min-width:900px){ .step-card { grid-column:span 6; } }
 .badge { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; background:var(--brand); color:#fff; font-weight:700; flex-shrink:0; }
+.badge-rec { display:inline-block; background:#dbeafe; color:#1d4ed8; font-weight:700; padding:.2rem .5rem; border-radius:.5rem; font-size:.8rem; }
 .step-title { margin:0; font-weight:700; }
 .step-desc { margin:.25rem 0 0 0; color:#475569; }
 
 .divider { height:1px; background:#e2e8f0; margin:1.25rem 0; }
 
-/* Section wrapper */
-.section { max-width:1100px; margin:0 auto; }
-
-
-/* --- Industries grid helpers --- */
-.grid3 { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-@media (max-width: 900px){ .grid3 { grid-template-columns: 1fr; } }
-.card-title { display:flex; align-items:center; gap:.5rem; margin:0 0 .25rem 0; font-weight:700; }
-.icon { font-size:1.1rem; }
-.section + .section { margin-top: 2rem; }
-.section h2 { margin: 0 0 .5rem 0; font-size: 1.4rem; }
-
-
-/* --- Accessibility & polish --- */
-:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
-.badge-rec { display:inline-block; background:#dbeafe; color:#1d4ed8; font-weight:700; padding:.2rem .5rem; border-radius:.5rem; font-size:.8rem; }
-.checklist { list-style:none; margin:0; padding:0; }
-.checklist li::before { content: '✔'; display:inline-block; margin-right:.5rem; }
-.testimonials { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:1rem; }
-@media (max-width: 900px){ .testimonials { grid-template-columns: 1fr; } }
-.quote { background:#fff; border:1px solid #e2e8f0; border-radius:1rem; padding:1rem; }
-.faq { max-width: 900px; margin: 0 auto; }
+/* FAQ / Testimonials */
+.faq { max-width:900px; margin:0 auto; }
 .faq details { background:#fff; border:1px solid #e2e8f0; border-radius:.75rem; padding:.75rem 1rem; }
 .faq details + details { margin-top:.75rem; }
 .faq summary { font-weight:700; cursor:pointer; }
+.testimonials { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.quote { background:#fff; border:1px solid #e2e8f0; border-radius:1rem; padding:1rem; }
 
+/* Trust row */
+.trust-row { margin:1rem auto 0; display:flex; gap:.75rem; align-items:center; justify-content:center; color:#64748b; font-size:.95rem; flex-wrap:wrap; row-gap:.25rem; }
+.trust-row ul { display:flex; gap:1rem; list-style:none; padding:0; margin:0; flex-wrap:wrap; }
+.trust-row li { opacity:.9; }
 
-/* --- Sticky CTA mobile --- */
+/* Sticky CTA (mobile only) */
 .sticky-cta { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e2e8f0; padding:.75rem 1rem; display:flex; justify-content:center; z-index:50; }
-@media (min-width: 768px){ .sticky-cta { display:none; } }
+.mobile-cta { position:fixed; left:0; right:0; bottom:0; z-index:50; display:none; }
+.mobile-cta-inner { margin:0 auto; max-width:1120px; padding:.75rem 1rem; display:flex; justify-content:center; }
 
+/* Accessibility */
+:focus-visible { outline:3px solid var(--brand); outline-offset:2px; }
 
-/* --- Mobile sticky CTA --- */
-.mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display:none; }
-.mobile-cta-inner { margin: 0 auto; max-width: 1120px; padding: .75rem 1rem; display:flex; justify-content: center; }
-@media (max-width: 768px){
-  .mobile-cta { display:block; }
-  body { padding-bottom: 64px; } /* avoid overlap */
+/* =============== Mobile tweaks =============== */
+@media (max-width:900px){
+  .faq-grid { grid-template-columns:1fr; }
 }
-
-/* homepage polish */
-.trust-row {margin:1rem auto 0;display:flex;gap:.75rem;align-items:center;justify-content:center;color:#64748b;font-size:.95rem;}
-.trust-row ul{display:flex;gap:1rem;list-style:none;padding:0;margin:0;}
-.trust-row li{opacity:.9;}
-.grid4{display:grid;gap:1rem;grid-template-columns:repeat(1,minmax(0,1fr));}
-@media(min-width:860px){.grid4{grid-template-columns:repeat(4,minmax(0,1fr));}}
-.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;}
-.chip{background:#eef2ff;color:#334155;border:1px solid #dbeafe;padding:.35rem .6rem;border-radius:999px;font-size:.9rem;}
-.faq-grid{display:grid;gap:1rem;grid-template-columns:1fr;}
-@media(min-width:900px){.faq-grid{grid-template-columns:1fr 1fr;}}
-details{border-radius:.75rem;background:#fff;border:1px solid #e2e8f0;padding:.8rem 1rem;}
-details+details{margin-top:.5rem;}
-details summary{cursor:pointer;font-weight:600;color:#0f172a;}
-details[open]{border-color:#cbd5e1;background:#f8fafc;}
-
-/* ========= MOBILE POLISH ========= */
-/* 1) Containers & typography */
-:root { --pad-mobile: 1rem; }
-@media (max-width: 640px) {
-  .container { padding-left: var(--pad-mobile); padding-right: var(--pad-mobile); }
-  .section-pad { padding-top: 2rem; padding-bottom: 2rem; }
-  .h1 { font-size: clamp(28px, 7vw, 44px); line-height: 1.15; }
-  h3 { font-size: 1.15rem; }
-  .subtle { font-size: .98rem; line-height: 1.6; }
-  .faint { font-size: .9rem; }
-}
-/* 2) Hero buttons – stack on small screens */
-@media (max-width: 480px) {
-  #hero .btn, #hero .btn-outline { display: block; width: 100%; text-align: center; }
-  #hero .btn + .btn-outline { margin-top: .5rem; }
-}
-/* 3) Trust row under hero */
-.trust-row { flex-wrap: wrap; row-gap: .25rem; }
-.trust-row ul { flex-wrap: wrap; }
-@media (max-width: 640px) {
-  .trust-row { font-size: .9rem; }
-  .trust-row ul { gap: .6rem; }
-}
-/* 4) Card spacing on mobile */
-@media (max-width: 640px) {
-  .card { padding: 1rem; }
-  .grid3, .grid4, .grid2 { gap: .75rem; }
-}
-/* 5) Grids collapse sooner for comfort */
-.grid4 { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0,1fr)); }
-.grid3 { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0,1fr)); }
-.grid2 { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0,1fr)); }
-@media (min-width: 760px) { .grid3 { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 860px) { .grid4 { grid-template-columns: repeat(4, 1fr); } .grid2 { grid-template-columns: repeat(2, 1fr);} }
-/* 6) Industry chips – wrap nicely */
-.chips { row-gap: .4rem; }
-@media (max-width: 640px) { .chip { font-size: .85rem; padding: .28rem .5rem; } }
-/* 7) FAQ – bigger tap targets and spacing */
-details { padding: .9rem 1rem; }
-details summary { font-size: 1rem; }
-details + details { margin-top: .6rem; }
-@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; } }
-/* 8) Header nav – avoid overflow on small screens (non-destructive) */
-@media (max-width: 860px) {
-  header nav, .nav { flex-wrap: wrap; row-gap: .5rem; }
-  .nav a, .nav button { margin-right: .5rem; }
-}
-/* 9) Footer columns stack cleanly */
-@media (max-width: 800px) { footer .container { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { footer .container { grid-template-columns: 1fr; } }
-/* 10) Reduce horizontal scroll surprises */
-img, svg, video { max-width: 100%; height: auto; }
-/* ===============================
-   Mobile Fix Patch — add BELOW your existing styles in globals.css
-   Issues fixed:
-   1) Nav links running off-screen
-   2) Pricing text overflowing cards
-   3) Contact form inputs shifted right
-   Safe: affects only small screens (<=768px) and keeps desktop unchanged.
-   =============================== */
-
-/* --- Global: prevent sideways scroll --- */
-html, body { overflow-x: hidden; }
-
-/* --- 1) NAV: stop links running off-screen on mobile --- */
-/* Assumes your nav structure uses <header><nav>...<ul class="nav-links">...</ul> */
-header nav { display:flex; align-items:center; justify-content:space-between; }
-header nav .nav-links { display:flex; gap:12px; flex-wrap:wrap; }   /* allow wrap */
-header .container { padding-inline:16px; }
-
-@media (max-width: 768px) {
-  header nav .cta, header nav .btn { padding:10px 14px; font-size:0.95rem; }
-  /* Optional mini-toggle if you already have a .nav-toggle button */
-  /* .nav-links { display:none; } .nav-links.open { display:flex; } */
-}
-
-/* --- 2) PRICING: stop text bleeding out of cards --- */
-/* Add class 'pricing-row' to the wrapper and 'pricing-card' to each card */
-.pricing-row { display:flex; gap:16px; }
-.pricing-row .pricing-card {
-  flex:1 1 0;
-  min-width: 0;                 /* critical for flex text wrapping */
-  box-sizing: border-box;
-  padding:20px;
-  border:1px solid #e6e8ee; border-radius:16px;
-  overflow-wrap:anywhere; word-break:break-word; hyphens:auto;
-}
-@media (max-width: 768px) {
-  .pricing-row { flex-direction: column; }
-  .pricing-row .pricing-card { width:100%; }
-}
-
-/* --- 3) CONTACT: inputs shifted right — recenter and full width --- */
-section[id*="contact"] .container { max-width:720px; margin:0 auto; padding-inline:16px; }
-section[id*="contact"] form { width:100%; margin:0 auto; }
-section[id*="contact"] input,
-section[id*="contact"] textarea,
-section[id*="contact"] button { width:100%; box-sizing:border-box; }
-
-/* Safety: neutralize stray offsets on mobile (from previous sections/buttons) */
-@media (max-width: 768px) {
-  section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
-}
-
-/* Ensure viewport meta exists in your HTML head:
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
-*/
-/* === MOBILE HOTFIX (v4) === */
-
-/* 0) No sideways scrolling */
-html, body { overflow-x: hidden; }
-
-/* 1) NAV: links were cut off because the nav had a fixed height */
-@media (max-width: 860px){
-  .nav       { height:auto; }
-  .nav-inner { height:auto; flex-wrap:wrap; align-items:flex-start; row-gap:.5rem; }
-  .nav a     { margin-right:.6rem; }
-  .nav .btn  { width:100%; justify-content:center; } /* CTA sits on its own line */
-}
-
-/* 2) CONTACT: keep inputs centered & full width */
-section[id*="contact"] .container { max-width:720px; margin:0 auto; padding:0 16px; }
-section[id*="contact"] form { width:100%; margin:0 auto; }
-section[id*="contact"] input,
-section[id*="contact"] textarea,
-section[id*="contact"] button { width:100%; box-sizing:border-box; }
-@media (max-width: 768px){
-  section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
-}
-
-/* 3) PRICING: text overflowing – wrap text and stack cards on mobile */
-.pricing-row .card { 
-  min-width:0; 
-  overflow-wrap:anywhere; 
-  word-break:break-word; 
-  hyphens:auto; 
-}
-@media (max-width: 860px){
-  .pricing-row { display:flex; flex-direction:column; gap:1rem; }
-  .pricing-row .card { width:100%; }
-}
-/* CONTACT — keep centered and full width on phones */
-section[id*="contact"] .container { max-width:720px; margin:0 auto; padding:0 16px; }
-section[id*="contact"] form { width:100%; margin:0 auto; }
-section[id*="contact"] input,
-section[id*="contact"] textarea,
-section[id*="contact"] button { width:100%; box-sizing:border-box; }
-@media (max-width: 768px){
-  section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
-}
-/* FORCE stack any container with 3+ cards on mobile */
-@media (max-width: 860px){
-  .container:has(> .card) {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .container:has(> .card) .card {
-    width: 100%;
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-}
-/* === PRICING AS ROWS ON MOBILE (more spacing, cleaner) === */
-@media (max-width: 860px){
-  /* Find any container that directly holds pricing cards and stack them with space */
-  .container:has(> .card){
-    display: flex;
-    flex-direction: column;   /* rows */
-    gap: 1.25rem;             /* more space between cards */
-  }
-  .container:has(> .card) .card{
-    width: 100%;
-    min-width: 0;
-    padding: 1.25rem 1.25rem 1rem;
-    border-radius: 16px;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  /* Optional polish: tighten headings/prices inside each card */
-  .container:has(> .card) .card h3 { margin: 0 0 .25rem 0; }
-  .container:has(> .card) .card p  { margin: .25rem 0; }
-  .container:has(> .card) .btn,
-  .container:has(> .card) .btn-outline { width: 100%; justify-content: center; }
-}
-/* Pricing grid: desktop = 3 cols, mobile = rows */
-.pricing-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
 @media (max-width:860px){
-  .pricing-grid { grid-template-columns:1fr; gap:1.25rem; }
-  .pricing-grid .card { min-width:0; overflow-wrap:anywhere; word-break:break-word; }
-  .pricing-grid .btn { width:100%; justify-content:center; }
-}
-/* --- FINAL OVERRIDE: pricing rows on mobile --- */
-@media (max-width: 860px){
-  /* If the wrapper has BOTH classes, make pricing-grid win */
-  .grid4.pricing-grid{
-    display: grid !important;
-    grid-template-columns: 1fr !important;   /* full-width rows */
-    gap: 1.25rem !important;
-  }
-  .grid4.pricing-grid > .card{
-    width: 100%;
-    min-width: 0;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    hyphens: auto;
-  }
-  .grid4.pricing-grid .btn{
-    width: 100%;
-    justify-content: center;
-  }
-}
-/* ===== FINAL MOBILE FIXES ===== */
+  /* Collapse grids */
+  .grid2 { grid-template-columns:1fr; }
+  .grid3 { grid-template-columns:1fr; }
+  .grid4 { grid-template-columns:1fr; }
 
-/* Stop sideways scroll */
-html, body { overflow-x: hidden; }
+  /* Nav may wrap; remove fixed height */
+  .nav { height:auto; }
+  .nav-inner { height:auto; flex-wrap:wrap; row-gap:.5rem; align-items:flex-start; }
+  .nav a, .nav button { margin-right:.5rem; }
 
-/* NAV — allow wrapping on mobile */
-@media (max-width: 860px){
-  .nav       { height: auto; }
-  .nav-inner { height: auto; flex-wrap: wrap; row-gap: .5rem; align-items: flex-start; }
-  .nav a     { margin-right: .6rem; }
-  .nav .btn  { width: 100%; justify-content: center; }
+  /* Footer stacks */
+  .footer-grid { grid-template-columns:1fr; }
+  .mobile-cta { display:block; }
+  body { padding-bottom:64px; }
+}
+@media (max-width:800px){
+  footer .container { display:grid; gap:1rem; grid-template-columns:1fr 1fr; }
+}
+@media (max-width:520px){
+  footer .container { grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  .container { padding-left:1rem; padding-right:1rem; }
+  .section-pad { padding-top:2rem; padding-bottom:2rem; }
+  .h1 { font-size: clamp(28px, 7vw, 44px); line-height:1.15; }
+  h3 { font-size:1.15rem; }
+  .subtle { font-size:.98rem; line-height:1.6; }
+  .faint { font-size:.9rem; }
+  .card { padding:1rem; }
+  .grid2, .grid3, .grid4 { gap:.75rem; }
+  .chips { row-gap:.4rem; }
+  .chip { font-size:.85rem; padding:.28rem .5rem; }
 }
 
-/* CONTACT — center and full-width inputs */
-section[id*="contact"] .container { max-width: 720px; margin: 0 auto; padding: 0 16px; }
-section[id*="contact"] form { width: 100%; margin: 0 auto; }
+/* =========== Targeted mobile fixes =========== */
+
+/* CONTACT — center & full width */
+section[id*="contact"] .container { max-width:720px; margin:0 auto; padding:0 16px; }
+section[id*="contact"] form { width:100%; margin:0 auto; }
 section[id*="contact"] input,
 section[id*="contact"] textarea,
-section[id*="contact"] button { width: 100%; box-sizing: border-box; }
-@media (max-width: 768px){
-  section[id*="contact"] * { margin-left: 0 !important; transform: none !important; }
+section[id*="contact"] button { width:100%; box-sizing:border-box; }
+@media (max-width:768px){
+  section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
 }
 
-/* PRICING — force rows on mobile */
-@media (max-width: 860px){
-  /* Your current wrapper (.grid4.mt1[style]) */
+/* PRICING — hard override to rows on mobile, even if inline gridTemplateColumns is set */
+@media (max-width:860px){
+  /* Any .grid4 that directly holds .card items (your pricing wrapper) */
+  .grid4:has(> .card){
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:1.25rem !important;
+  }
+  .grid4:has(> .card) > .card{
+    width:100%;
+    min-width:0;
+    overflow-wrap:anywhere; word-break:break-word; hyphens:auto;
+  }
+  .grid4:has(> .card) .btn,
+  .grid4:has(> .card) .btn-outline{
+    width:100%; justify-content:center;
+  }
+
+  /* Belt-and-braces: match the current wrapper exactly if it still has inline style */
   .grid4.mt1[style]{
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-  .grid4.mt1[style] > .card{
-    width: 100%;
-    min-width: 0;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    hyphens: auto;
-  }
-  .grid4.mt1[style] .btn{ width: 100%; justify-content: center; }
-
-  /* If you renamed it to .pricing-grid */
-  .pricing-grid{
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-  .pricing-grid > .card{
-    width: 100%;
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-  .pricing-grid .btn{
-    width: 100%;
-    justify-content: center;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:1.25rem !important;
   }
 }
 
+/* END */
