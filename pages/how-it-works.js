@@ -1,7 +1,6 @@
-// pages/how-it-works.js
 import Head from 'next/head'
 
-export default function Page(){
+export default function HowItWorksPage(){
   return (
     <>
       <Head>
@@ -12,6 +11,7 @@ export default function Page(){
         />
       </Head>
 
+      {/* BUILD OK v3 */}
       <section className="container mt2 section">
         <h1 className="h1">How It Works</h1>
         <p className="lead">
@@ -61,7 +61,6 @@ export default function Page(){
         </div>
 
         <div className="divider" />
-
         <p className="muted">
           Want to see this live on your calendar? Try the <strong>15‑day free trial</strong> — no obligation.
         </p>
