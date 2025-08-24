@@ -1,23 +1,25 @@
-
-import Link from 'next/link'
-
-export default function Header(){
+export default function Header() {
   return (
     <header className="nav">
       <div className="container nav-inner">
-        <Link href="/" className="logo" style={{display:'flex', alignItems:'center', gap:12}}>
-          <img src="/logo-horizontal.svg" width="210" height="64" alt="AutoBooked AI" />
-        </Link>
-        <nav aria-label="Primary">
-          <Link href="/">Home</Link>
-          <Link href="/how-it-works">How It Works</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/industries">Industries</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/book" className="btn" style={{marginLeft:8}}>Start Free Trial</Link>
+        {/* Brand */}
+        <a href="/" className="brand" aria-label="AutoBooked AI">
+          <img src="/logo.svg" alt="AutoBooked AI" height="28" />
+        </a>
+
+        {/* Links */}
+        <nav className="nav-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/how">How It Works</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/industries">Industries</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </nav>
+
+        {/* CTA */}
+        <a href="/book" className="btn nav-cta">Start Free Trial</a>
       </div>
     </header>
-  )
+  );
 }
