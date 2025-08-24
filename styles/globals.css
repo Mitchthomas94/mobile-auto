@@ -151,4 +151,59 @@ details + details { margin-top: .6rem; }
 @media (max-width: 520px) { footer .container { grid-template-columns: 1fr; } }
 /* 10) Reduce horizontal scroll surprises */
 img, svg, video { max-width: 100%; height: auto; }
+/* ===============================
+   Mobile Fix Patch — add BELOW your existing styles in globals.css
+   Issues fixed:
+   1) Nav links running off-screen
+   2) Pricing text overflowing cards
+   3) Contact form inputs shifted right
+   Safe: affects only small screens (<=768px) and keeps desktop unchanged.
+   =============================== */
+
+/* --- Global: prevent sideways scroll --- */
+html, body { overflow-x: hidden; }
+
+/* --- 1) NAV: stop links running off-screen on mobile --- */
+/* Assumes your nav structure uses <header><nav>...<ul class="nav-links">...</ul> */
+header nav { display:flex; align-items:center; justify-content:space-between; }
+header nav .nav-links { display:flex; gap:12px; flex-wrap:wrap; }   /* allow wrap */
+header .container { padding-inline:16px; }
+
+@media (max-width: 768px) {
+  header nav .cta, header nav .btn { padding:10px 14px; font-size:0.95rem; }
+  /* Optional mini-toggle if you already have a .nav-toggle button */
+  /* .nav-links { display:none; } .nav-links.open { display:flex; } */
+}
+
+/* --- 2) PRICING: stop text bleeding out of cards --- */
+/* Add class 'pricing-row' to the wrapper and 'pricing-card' to each card */
+.pricing-row { display:flex; gap:16px; }
+.pricing-row .pricing-card {
+  flex:1 1 0;
+  min-width: 0;                 /* critical for flex text wrapping */
+  box-sizing: border-box;
+  padding:20px;
+  border:1px solid #e6e8ee; border-radius:16px;
+  overflow-wrap:anywhere; word-break:break-word; hyphens:auto;
+}
+@media (max-width: 768px) {
+  .pricing-row { flex-direction: column; }
+  .pricing-row .pricing-card { width:100%; }
+}
+
+/* --- 3) CONTACT: inputs shifted right — recenter and full width --- */
+section[id*="contact"] .container { max-width:720px; margin:0 auto; padding-inline:16px; }
+section[id*="contact"] form { width:100%; margin:0 auto; }
+section[id*="contact"] input,
+section[id*="contact"] textarea,
+section[id*="contact"] button { width:100%; box-sizing:border-box; }
+
+/* Safety: neutralize stray offsets on mobile (from previous sections/buttons) */
+@media (max-width: 768px) {
+  section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
+}
+
+/* Ensure viewport meta exists in your HTML head:
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+*/
 
