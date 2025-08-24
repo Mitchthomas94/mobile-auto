@@ -249,4 +249,17 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
 @media (max-width: 768px){
   section[id*="contact"] * { margin-left:0 !important; transform:none !important; }
 }
+/* FORCE stack any container with 3+ cards on mobile */
+@media (max-width: 860px){
+  .container:has(> .card) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .container:has(> .card) .card {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
 
