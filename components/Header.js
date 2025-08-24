@@ -1,34 +1,25 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header() {
   return (
     <header className="nav">
       <div className="container nav-inner">
-        {/* Brand */}
-        <a href="/" className="brand" aria-label="AutoBooked AI">
-          <Image 
-            src="/logo-horizontal.svg" 
-            alt="AutoBooked AI" 
-            width={160}  // adjust as needed
-            height={40}  // adjust as needed
-            priority 
-          />
-        </a>
+        <Link href="/" className="brand" aria-label="AutoBooked AI">
+          <Image src="/logo-horizontal.svg" alt="AutoBooked AI" width={160} height={40} priority />
+        </Link>
 
-        {/* Links */}
         <nav className="nav-links" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/how-it-works">How It Works</a>   {/* ✅ correct */}
-          <a href="/pricing">Pricing</a>
-          <a href="/industries">Industries</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <Link href="/">Home</Link>
+          <Link href="/how-it-works">How It Works</Link> {/* <-- correct */}
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/industries">Industries</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
 
-        {/* CTA */}
-        <a href="/book" className="btn nav-cta">Start Free Trial</a>
+        <Link href="/book" className="btn nav-cta">Start Free Trial</Link>
       </div>
     </header>
   );
 }
-
