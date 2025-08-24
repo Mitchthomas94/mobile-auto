@@ -312,4 +312,60 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
     justify-content: center;
   }
 }
+/* ===== FINAL MOBILE FIXES ===== */
+
+/* Stop sideways scroll */
+html, body { overflow-x: hidden; }
+
+/* NAV — allow wrapping on mobile */
+@media (max-width: 860px){
+  .nav       { height: auto; }
+  .nav-inner { height: auto; flex-wrap: wrap; row-gap: .5rem; align-items: flex-start; }
+  .nav a     { margin-right: .6rem; }
+  .nav .btn  { width: 100%; justify-content: center; }
+}
+
+/* CONTACT — center and full-width inputs */
+section[id*="contact"] .container { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+section[id*="contact"] form { width: 100%; margin: 0 auto; }
+section[id*="contact"] input,
+section[id*="contact"] textarea,
+section[id*="contact"] button { width: 100%; box-sizing: border-box; }
+@media (max-width: 768px){
+  section[id*="contact"] * { margin-left: 0 !important; transform: none !important; }
+}
+
+/* PRICING — force rows on mobile */
+@media (max-width: 860px){
+  /* Your current wrapper (.grid4.mt1[style]) */
+  .grid4.mt1[style]{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .grid4.mt1[style] > .card{
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .grid4.mt1[style] .btn{ width: 100%; justify-content: center; }
+
+  /* If you renamed it to .pricing-grid */
+  .pricing-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .pricing-grid > .card{
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .pricing-grid .btn{
+    width: 100%;
+    justify-content: center;
+  }
+}
 
