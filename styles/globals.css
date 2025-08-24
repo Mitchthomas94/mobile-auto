@@ -292,4 +292,24 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
   .pricing-grid .card { min-width:0; overflow-wrap:anywhere; word-break:break-word; }
   .pricing-grid .btn { width:100%; justify-content:center; }
 }
+/* --- FINAL OVERRIDE: pricing rows on mobile --- */
+@media (max-width: 860px){
+  /* If the wrapper has BOTH classes, make pricing-grid win */
+  .grid4.pricing-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;   /* full-width rows */
+    gap: 1.25rem !important;
+  }
+  .grid4.pricing-grid > .card{
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .grid4.pricing-grid .btn{
+    width: 100%;
+    justify-content: center;
+  }
+}
 
