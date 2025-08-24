@@ -262,4 +262,27 @@ section[id*="contact"] button { width:100%; box-sizing:border-box; }
     overflow-wrap: anywhere;
   }
 }
+/* === PRICING AS ROWS ON MOBILE (more spacing, cleaner) === */
+@media (max-width: 860px){
+  /* Find any container that directly holds pricing cards and stack them with space */
+  .container:has(> .card){
+    display: flex;
+    flex-direction: column;   /* rows */
+    gap: 1.25rem;             /* more space between cards */
+  }
+  .container:has(> .card) .card{
+    width: 100%;
+    min-width: 0;
+    padding: 1.25rem 1.25rem 1rem;
+    border-radius: 16px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Optional polish: tighten headings/prices inside each card */
+  .container:has(> .card) .card h3 { margin: 0 0 .25rem 0; }
+  .container:has(> .card) .card p  { margin: .25rem 0; }
+  .container:has(> .card) .btn,
+  .container:has(> .card) .btn-outline { width: 100%; justify-content: center; }
+}
 
